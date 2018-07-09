@@ -28,6 +28,11 @@ where cust_id in (
     )
 ) 
 ;
+/*
+# cust_id, cust_name, cust_address, cust_city, cust_state, cust_zip, cust_country, cust_contact, cust_email
+1000000004, Fun4All, 829 Riverside Drive, Phoenix, AZ, 88888, USA, Denise L. Stephens, dstephens@fun4all.com
+1000000005, The Toy Store, 4545 53rd Street, Chicago, IL, 54545, USA, Kim Howard, 
+*/
 
 select Customers.cust_name,Customers.cust_state,(
 	select count(*)
@@ -36,3 +41,10 @@ select Customers.cust_name,Customers.cust_state,(
     ) as orders
 from Customers
 group by cust_id
+/*
+Village Toys	MI	2
+Kids Place	OH	0
+Fun4All	IN	1
+Fun4All	AZ	1
+The Toy Store	IL	1
+*/
